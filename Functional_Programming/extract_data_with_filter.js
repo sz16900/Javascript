@@ -113,9 +113,11 @@ var watchList = [
 ];
 
 // Only change code below this line
-// Parenthesis around the curly are needed to return an object
-var ratings = watchList.map(x => ({ title: x.Title, rating: x.imdbRating }));
+
+var new_arr = watchList.map(item => ({ title: item.Title, rating: item.imdbRating }));
+
+var filteredList = new_arr.filter(item => parseFloat(item.rating) >= 8.0);
 
 // Only change code above this line
 
-console.log(JSON.stringify(ratings));
+console.log(filteredList);

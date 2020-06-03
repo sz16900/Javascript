@@ -112,10 +112,19 @@ var watchList = [
     }
 ];
 
-// Only change code below this line
-// Parenthesis around the curly are needed to return an object
-var ratings = watchList.map(x => ({ title: x.Title, rating: x.imdbRating }));
+function getRating(watchList) {
+    // Only change code below this line
+    var new_arr = watchList.map(item => ({ director: item.Director, rating: item.imdbRating }));
 
-// Only change code above this line
+    var filteredList = new_arr.filter(item => item.director == "Christopher Nolan");
 
-console.log(JSON.stringify(ratings));
+    console.log(filteredList);
+
+
+    var averageRating = filteredList.reduce((sum, user) => (sum + Number(user.rating) / filteredList.length), 0);
+
+
+    // Only change code above this line
+    return averageRating;
+}
+console.log(getRating(watchList));
